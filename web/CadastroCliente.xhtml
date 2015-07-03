@@ -31,6 +31,26 @@
 			
 				<h:outputLabel value="CEP" for="cep" />
 				<h:inputText id="cep" value="" />
+<!-- Aqui usa os convert Bairro / Cidade e UF -->
+                                <h:outputLabel value="UF" for="uf" />
+                                <h:selectOneMenu id="uf" value="#{enderecoBean.uf}" converter="ufConverter">
+					<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
+                                        <f:selectItems value="#{enderecoBean.ufs}" var="uf" itemLabel="#{uf.sigla}" itemValue="#{uf}"  />
+                                        <f:ajax execute="@this" render=":cidade :bairro :mensagens" listener="#{enderecoBean.atualizaCidades(event)}" />
+                                    </h:selectOneMenu>
+				
+				<h:outputLabel value="Cidade" for="cidade" />
+                                <h:selectOneMenu id="cidade" value="#{enderecoBean.cidade}" converter="cidadeConverter">
+					<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
+                                        <f:selectItems value="#{enderecoBean.cidades}" var="c" itemLabel="#{c.nome}" itemValue="#{c}"  />
+                                        <f:ajax execute="@this" render=":bairro :mensagens" listener="#{enderecoBean.atualizaBairros(event)}" />
+				</h:selectOneMenu>
+				
+				<h:outputLabel value="Bairro" for="bairro" />
+				<h:selectOneMenu id="bairro" value="#{cadastroBean.participante.endereco.bairro}" converter="bairroConverter">
+					<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
+					<f:selectItems value="#{enderecoBean.bairros}" var="b" itemLabel="#{b.nome}" itemValue="#{b}"  />
+				</h:selectOneMenu>
 
 				<h:outputLabel value="Logradouro" for="logradouro" />
 				<h:inputText id="logradouro" value="" />
