@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta charset="utf-8"/>
+                <title>Cadastro de Usuários</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+                <link href="css/bootstrap.min_2.css" rel="stylesheet"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+                <link href="css/styles.css" rel="stylesheet"/>
+    </h:head>
+    
+    <h:body>
+       <dir id="loginModal" class="modal show">
+ 
+    
+<div class="modal-body">
+    <h:form>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="text-center">Cadastro de Usuário</h1>
+        </div>
+    <!-- Form Name -->
+<div class="modal-body">
+    <h:form class="form col-lg-12 center-block">
+    <!-- Text input-->
+
+<div class="control-group">
+    
+    <h:outputLabel class="form control-label center-block" value="Nome" for="campo-nome"/>
+    <h:inputText value="#{usuarioBean.usuario.nome}" id="campo-nome" label="nome" pt:placeholder="Informe seu nome completo" 
+    class="form-control input-group-sm" required="true"/>
+</div>
+
+    <!-- Password input-->
+    <div class="control-group">
+    <label class="control-label" for="senha">Senha</label>
+        <div class="controls">
+            <h:inputText id="senha" value="#{usuarioBean.usuario.senha}" pt:placeholder="Digite sua senha" class="form-control input-sm"/>
+        </div>
+    </div>
+   <!-- Button (Double) -->
+    <div class="modal-header">
+    <label class="control-label" for="enviar"></label>
+        <div class="controls">
+            <h:commandButton action="#{usuarioBean.adicionaUsuario}" class="btn btn-success" value="Salvar"/>
+            
+        <button id="cancelar" name="cancelar" class="btn btn-danger">Cancelar</button>
+    </div>
+    </div>  
+</h:form>
+</div>
+</div>
+</div>    
+    
+ </h:form>
+    </div>
+</dir>
+       
+    </h:body>
+     <!--script references-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min_2.js"></script>
+</html>
+

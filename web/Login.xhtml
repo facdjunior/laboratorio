@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta charset="utf-8"/>
+                <title>Acessar sistema</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+                <link href="css/bootstrap.min_2.css" rel="stylesheet"/>
+                <link href="css/styles.css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+  
+        <!--login model-->
+<dir id="loginModal" class="modal show">
+    <h:form>
+    <dir class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+        <h:commandButton type="button" class="close" value="X"></h:commandButton>
+        <h1 class="text-center">Acessar Sistema</h1>
+        <p:messages id="messages"/>
+        </div>
+        <div class="modal-body">
+        <h:form class="form col-lg-12 center-block">
+        <div class="form-group">
+            <h:outputLabel value="E-mail: " for="campo-email"/>
+            <h:inputText class="form-control input-lg" label="E-mail" value="#{usuarioBean.usuario.nome}" id="campo-email"/>
+        </div>
+            <div class="form-group">
+            <h:outputLabel value="Senha:  " for="campo-senha"/>
+            <h:inputSecret class="form-control input-lg" value="#{usuarioBean.usuario.senha}" id="campo-senha"/>
+        </div>
+        
+           <div class="form-group">
+               
+               <h:commandButton class="btn btn-primary btn-lg btn-group-lg" value="Acessar" title="Acessar" action="#{usuarioBean.envia()}"/>
+            
+            <p><span class="pull-right"><a href="#">Registrar
+            </a></span><span><a href="#">Need help?</a></span></p>
+        </div><div class="modal-footer">
+            <div class="col-lg-12">
+                <h:commandButton class="btn modal" value="Cancelar" style="animation-name: none"></h:commandButton>
+            </div>
+        </div>
+             </h:form>
+            </div>
+            
+        </div>    
+        </dir>
+</h:form>
+        </dir> 
+        <!--script references-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min_2.js"></script>
+    </h:body>
+</html>
