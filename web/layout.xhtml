@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+                <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta charset="utf-8"/>
+                <meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+                <link href="css/bootstrap.min_2.css" rel="stylesheet"/>
+                <link href="css/styles.css" rel="stylesheet"/>
+</h:head>
+
+<body>
+    <!--login model-->
+<dir id="loginModal" class="modal show">
+    <h:form>
+    <dir class="modal-dialog">
+        <div class="modal-content">
+	<div id="header">
+		<ui:insert name="header" />
+	</div>
+	<hr />
+	<div id="content">
+		<ui:insert name="content" />
+	</div>
+	<hr />
+	<div id="footer">
+		<h:form>
+			<h:commandLink value="Cadastro" action="cadastro?faces-redirect=true" /> | 
+			<h:commandLink value="Todos os participantes" action="lista-participantes?faces-redirect=true" />
+		</h:form>
+	</div>
+        </div>
+    </dir>
+    </h:form>
+</dir>
+     <!--script references-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min_2.js"></script>
+
+</body>
+
+</html>

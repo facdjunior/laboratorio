@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/layout.xhtml">
+	<ui:define name="header">
+            <h1 class="alert-success" align="center">Cadastre-se neste evento</h1>
+	</ui:define>
+	<ui:define name="content">
+		<h:form prependId="false">
+			<h:messages id="mensagens" />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome" for="nome" />
+				<h:inputText id="nome" value=""  />
+				
+				<h:outputLabel value="Empresa" for="empresa" />
+				<h:inputText id="empresa" value=""  />
+				
+				<h:outputLabel value="Cargo" for="cargo" />
+				<h:inputText id="cargo" value=""  />
+				
+				<h:outputLabel value="Telefone" for="telefone" />
+				<h:inputText id="telefone" value="" />
+				
+				<h:outputLabel value="E-mail" for="email" />
+				<h:inputText id="email" value="" />
+			
+				<h:outputLabel value="CEP" for="cep" />
+				<h:inputText id="cep" value="" />
+
+				<h:outputLabel value="Logradouro" for="logradouro" />
+				<h:inputText id="logradouro" value="" />
+				
+				<h:outputLabel value="Número" for="numero" />
+				<h:inputText id="numero" value="" />
+				
+				<h:outputLabel value="Complemento" for="complemento" />
+				<h:inputText id="complemento" value="" />
+				
+			</h:panelGrid>
+			
+		<div class="form-group">
+               <h:commandButton class="btn btn-primary btn-lg btn-group-lg" value="Acessar" title="Acessar" action="#{usuarioBean.envia()}"/>
+            <p><span class="pull-right"><a href="#">Registrar</a></span><span><a href="#">Need help?</a></span></p>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-lg-12">
+                    <h:commandButton class="btn modal" value="Cancelar" style="animation-name: none"></h:commandButton>
+                    </div>
+                </div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+
