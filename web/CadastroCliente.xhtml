@@ -8,61 +8,79 @@
 
 <ui:composition template="/layout.xhtml">
 	<ui:define name="header">
-            <h1 class="alert-success" align="center">Cadastre-se neste evento</h1>
+            <h1 class="alert-success" align="center">Cadastro de Funcionários</h1>
 	</ui:define>
 	<ui:define name="content">
 		<h:form prependId="false">
 			<h:messages id="mensagens" />
-			<h:panelGrid columns="2">
-				<h:outputLabel value="Nome" for="nome" />
-				<h:inputText id="nome" value=""  />
-				
-				<h:outputLabel value="Empresa" for="empresa" />
-				<h:inputText id="empresa" value=""  />
-				
-				<h:outputLabel value="Cargo" for="cargo" />
-				<h:inputText id="cargo" value=""  />
-				
-				<h:outputLabel value="Telefone" for="telefone" />
-				<h:inputText id="telefone" value="" />
-				
-				<h:outputLabel value="E-mail" for="email" />
-				<h:inputText id="email" value="" />
 			
-				<h:outputLabel value="CEP" for="cep" />
-				<h:inputText id="cep" value="" />
+                            <div class="form-group">
+                                <h:outputLabel value="Nome" for="nome" />
+                                <h:inputText class="input-lg form-control" id="nome" value=""/>
+                            </div>
+				
+                        <div class="form-group">
+				<h:outputLabel value="Empresa" for="empresa" />
+                                <h:inputText class="form-control input-lg" id="empresa" value=""  />
+                        </div>	
+                        
+                        <div class="form-group">
+				<h:outputLabel value="Cargo" for="cargo" />
+                                <h:inputText class="form-control input-lg" id="cargo" value=""  />
+                        </div>
+                        <div class="form-group">
+				<h:outputLabel value="Telefone" for="telefone" />
+                                <h:inputText class="form-group input-lg" id="telefone" value="" size="6" />
+                        </div>
+                        <div class="form-group">
+				<h:outputLabel value="E-mail" for="email" />
+                                <h:inputText class="form-control input-lg" id="email" value="" />
+			</div>
+                        
+                            
+        <h1  class="alert-info" align="center">Dados Endereço</h1>
+        
 <!-- Aqui usa os convert Bairro / Cidade e UF -->
-                                <h:outputLabel value="UF" for="uf" />
-                                <h:selectOneMenu id="uf" value="#{enderecoBean.uf}" converter="ufConverter">
-					<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
-                                        <f:selectItems value="#{enderecoBean.ufs}" var="uf" itemLabel="#{uf.sigla}" itemValue="#{uf}"  />
-                                        <f:ajax execute="@this" render=":cidade :bairro :mensagens" listener="#{enderecoBean.atualizaCidades(event)}" />
-                                    </h:selectOneMenu>
-				
-				<h:outputLabel value="Cidade" for="cidade" />
-                                <h:selectOneMenu id="cidade" value="#{enderecoBean.cidade}" converter="cidadeConverter">
-					<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
-                                        <f:selectItems value="#{enderecoBean.cidades}" var="c" itemLabel="#{c.nome}" itemValue="#{c}"  />
-                                        <f:ajax execute="@this" render=":bairro :mensagens" listener="#{enderecoBean.atualizaBairros(event)}" />
-				</h:selectOneMenu>
-				
-				<h:outputLabel value="Bairro" for="bairro" />
-				<h:selectOneMenu id="bairro" value="#{cadastroBean.participante.endereco.bairro}" converter="bairroConverter">
-					<f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
+<h:panelGrid columns="6">
+    
+            <h:outputLabel value="CEP" for="cep"  />
+            <h:inputText class="form-control input-medium" maxlength="10" id="cep" value="" size="6"/>
+            
+            <h:outputLabel value="UF" for="uf"/>
+            <h:selectOneMenu class="form-control input-medium" id="uf" value="#{enderecoBean.uf}" converter="ufConverter">
+		<f:selectItem itemLabel="--UF--" noSelectionOption="true"/>
+                <f:selectItems  value="#{enderecoBean.ufs}" var="uf" itemLabel="#{uf.sigla}" itemValue="#{uf}"  />
+                <f:ajax execute="@this" render=":cidade :bairro :mensagens" listener="#{enderecoBean.atualizaCidades(event)}" />
+            </h:selectOneMenu>
+        
+            <h:outputLabel value="Cidade" for="cidade" />
+                <h:selectOneMenu class="form-control input-medium" id="cidade" value="#{enderecoBean.cidade}" converter="cidadeConverter">
+                    <f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
+                    <f:selectItems value="#{enderecoBean.cidades}" var="c" itemLabel="#{c.nome}" itemValue="#{c}"  />
+                    <f:ajax execute="@this" render=":bairro :mensagens" listener="#{enderecoBean.atualizaBairros(event)}" />
+		</h:selectOneMenu>
+            <p></p>
+</h:panelGrid>
+                <div class="form-group">
+    				<h:outputLabel value="Bairro" for="bairro" />
+                                <h:selectOneMenu class="form-control input-lg" id="bairro" value="#{cadastroBean.participante.endereco.bairro}" converter="bairroConverter">
+					<f:selectItem itemLabel="Informe seu Bairro" noSelectionOption="true" />
 					<f:selectItems value="#{enderecoBean.bairros}" var="b" itemLabel="#{b.nome}" itemValue="#{b}"  />
 				</h:selectOneMenu>
-
-				<h:outputLabel value="Logradouro" for="logradouro" />
-				<h:inputText id="logradouro" value="" />
-				
+                </div>
+                <div class="form-group">
+                    <h:outputLabel value="Logradouro" for="logradouro" />
+                    <h:inputText class="form-control input-lg" id="logradouro" value="" />
+                </div>
+<div class="form-group">
 				<h:outputLabel value="Número" for="numero" />
-				<h:inputText id="numero" value="" />
-				
+                                <h:inputText class="form-inline input-lg" id="numero" value="" size="1" />
+
 				<h:outputLabel value="Complemento" for="complemento" />
-				<h:inputText id="complemento" value="" />
-				
-			</h:panelGrid>
-			
+                                <h:inputText class="form-inline input-lg" id="complemento" value="" />
+   
+</div>			
+<p></p>
 		<div class="form-group">
                <h:commandButton class="btn btn-primary btn-lg btn-group-lg" value="Acessar" title="Acessar" action="#{usuarioBean.envia()}"/>
             <p><span class="pull-right"><a href="#">Registrar</a></span><span><a href="#">Need help?</a></span></p>

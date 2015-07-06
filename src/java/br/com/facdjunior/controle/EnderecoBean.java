@@ -31,15 +31,15 @@ public class EnderecoBean implements Serializable {
 	@Inject
 	private EntityManager entityManager;
 	
-	private List<UF> ufs;
+	private List<UF>ufs;
 	private List<Cidade> cidades;
 	private List<Bairro> bairros;
 
-	private UF uf;
+	private UF uf = new UF();
 	private Cidade cidade;
 	
 	public List<UF> getUfs() {
-		if (ufs == null) {
+		if (uf == null) {
 			this.ufs = entityManager.createQuery("select uf from UF uf order by uf.sigla", UF.class).getResultList();
 		}
 		return this.ufs;

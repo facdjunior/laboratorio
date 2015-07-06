@@ -1,9 +1,6 @@
 package br.com.facdjunior.modelo;
 
-import br.com.facdjunior.controle.UsuarioBean;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;

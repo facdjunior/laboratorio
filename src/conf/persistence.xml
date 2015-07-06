@@ -3,9 +3,9 @@
   <persistence-unit name="SysLab_PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.com.facdjunior.modelo.Usuario</class>
-    <class>br.com.facdjunior.modelo.UF</class>
     <class>br.com.facdjunior.modelo.Bairro</class>
     <class>br.com.facdjunior.modelo.Cidade</class>
+    <class>br.com.facdjunior.modelo.UF</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/syslab?zeroDateTimeBehavior=convertToNull"/>
@@ -14,6 +14,7 @@
       <property name="javax.persistence.jdbc.password" value="root"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
       <property name="hibernate.hbm2dll.auto" value="Update"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

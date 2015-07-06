@@ -23,6 +23,9 @@ public class UF implements Serializable{
 	private Integer codigo;
 	private String sigla;
 	private String nome;
+        private Integer codIBGE;
+
+   
 	public UF() { }
 	public UF(Integer codigo, String sigla, String nome) {
 		this.codigo = codigo;
@@ -47,4 +50,11 @@ public class UF implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+         public Integer getCodIBGE() {
+        return codIBGE;
+    }
+
+        public void setCodIBGE(Integer codIBGE) {
+        this.codIBGE = codIBGE;
+    }
 }
