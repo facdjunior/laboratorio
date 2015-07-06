@@ -27,10 +27,11 @@ public class UF implements Serializable{
 
    
 	public UF() { }
-	public UF(Integer codigo, String sigla, String nome) {
+	public UF(Integer codigo, String sigla, String nome, Integer IBGE) {
 		this.codigo = codigo;
 		this.sigla = sigla;
 		this.nome = nome;
+                this.codIBGE = IBGE;
 	}
 	public Integer getCodigo() {
 		return codigo;
@@ -57,4 +58,31 @@ public class UF implements Serializable{
         public void setCodIBGE(Integer codIBGE) {
         this.codIBGE = codIBGE;
     }
+        @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UF other = (UF) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "UF [" + (sigla != null ? "sigla=" + sigla : "") + "]";
+	}
 }

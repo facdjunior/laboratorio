@@ -28,12 +28,12 @@ public class EnderecoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Inject
+	
 	private EntityManager entityManager;
 	
 	private List<UF>ufs;
 	private List<Cidade> cidades;
-	private List<Bairro> bairros;
+	/*private List<Bairro> bairros;*/
 
 	private UF uf = new UF();
 	private Cidade cidade;
@@ -48,7 +48,7 @@ public class EnderecoBean implements Serializable {
 	public void atualizaCidades(AjaxBehaviorEvent event) {
 		this.cidade = null;
 		this.cidades = null;
-		this.bairros = null;
+		//this.bairros = null;
 
 		UF uf = (UF) ((UISelectOne) event.getSource()).getValue();
 		if (uf != null) {
@@ -58,7 +58,7 @@ public class EnderecoBean implements Serializable {
 					.getResultList();
 		}
 	}
-
+/*
 	public void atualizaBairros(AjaxBehaviorEvent event) {
 		this.bairros = null;
 
@@ -70,15 +70,15 @@ public class EnderecoBean implements Serializable {
 					.getResultList();
 		} 
 	}
-
+*/
 	public List<Cidade> getCidades() {
 		return this.cidades;
 	}
-
+/*
 	public List<Bairro> getBairros() {
 		return bairros;
 	}
-	
+	*/
 	public UF getUf() {
 		return this.uf;
 	}

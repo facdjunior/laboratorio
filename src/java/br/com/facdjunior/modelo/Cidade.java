@@ -21,12 +21,22 @@ public class Cidade {
 	private String nome;
 	@ManyToOne
 	private UF uf;
+        private Integer CodIBGE;
 	public Cidade() {	}
 	public Cidade(Integer codigo, String nome, UF uf) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.uf = uf;
 	}
+
+    public Integer getCodIBGE() {
+        return CodIBGE;
+    }
+
+    public void setCodIBGE(Integer CodIBGE) {
+        this.CodIBGE = CodIBGE;
+    }
+        
 	public Integer getCodigo() {
 		return codigo;
 	}

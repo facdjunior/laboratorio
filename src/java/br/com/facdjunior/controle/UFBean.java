@@ -42,7 +42,7 @@ public class UFBean {
         this.uf = new UF();
     }
     //MOSTRA REGISTROS CADASTRADOS
-    public List<UF> getUsuarios(){
+    public List<UF> getUfs(){
         EntityManager manager = this.getEntityManager();
         UFRepository repository = new UFRepository(manager);
         return repository.buscaTodos();
