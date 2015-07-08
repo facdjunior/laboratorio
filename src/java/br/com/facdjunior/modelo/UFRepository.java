@@ -49,7 +49,7 @@ public class UFRepository {
         this.manager.persist(uf);
     }
     public List<UF> buscaTodos(){
-        Query query = this.manager.createQuery("select x from UF x ORDER BY X.codIBGE");
+        Query query = this.manager.createQuery("select x from UF x ORDER BY X.nome");
         return query.getResultList();
     }
     

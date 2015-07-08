@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.facdjunior.modelo;
 
 import java.util.List;
@@ -19,9 +14,12 @@ public class CidadeRepository {
     
     private EntityManager manager;
     private Cidade nome;
-    private Cidade UF;
+    private Cidade uf_codigo;
     private Cidade codIBGE;
+    
 
+    
+    
     public Cidade getNome() {
         return nome;
     }
@@ -31,11 +29,11 @@ public class CidadeRepository {
     }
 
     public Cidade getUF() {
-        return UF;
+        return uf_codigo;
     }
 
     public void setUF(Cidade UF) {
-        this.UF = UF;
+        this.uf_codigo = UF;
     }
 
     public Cidade getCodIBGE() {
@@ -57,6 +55,10 @@ public class CidadeRepository {
     }
     public List<Cidade> buscaTodos(){
         Query query = this.manager.createQuery("select x from Cidade x ORDER BY X.nome");
+        return query.getResultList();
+    }
+    public List<UF>buscaUF(){
+        Query query = this.manager.createQuery("select uf from UF uf ORDER BY uf.sigla");
         return query.getResultList();
     }
 }
