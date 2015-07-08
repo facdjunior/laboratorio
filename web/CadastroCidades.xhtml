@@ -27,7 +27,7 @@
 <div class="control-group">
     <h:outputLabel value="Cidade" for="Cidade"/>
   <div class="controls">
-      <h:inputText id="Cidade" value="" pt:placeholder="Informe nome do Município" class="input-xlarge"/>
+      <h:inputText id="Cidade" value="#{cidadeBean.cidade.nome}" pt:placeholder="Informe nome do Município" class="input-xlarge"/>
   </div>
 </div>
 
@@ -35,18 +35,18 @@
 <div class="control-group">
     <h:outputLabel value="Cód.IBGE" for="CodIBGE"/>
   <div class="controls">
-      <h:inputText id="CodIBGE" value="" pt:placeholder="Cód. IBGE" class="input-xlarge"/>
+      <h:inputText id="CodIBGE" value="#{cidadeBean.cidade.codIBGE}" pt:placeholder="Cód. IBGE" class="input-xlarge"/>
   </div>
 </div>
 <h:outputLabel value="UF" for="uf" />
-<h:selectOneMenu id="uf" value="#{uFBean.uf.uf}">
-	<f:selectItems value="#{uFBean.ufss}" var="uf" itemLabel="#{uf.sigla}" itemValue="#{uf.codigo}"  />
+<h:selectOneMenu id="uf" value="#{cidadeBean.cidade.uf}" converter="ufConverter">
+    <f:selectItems value="#{uFBean.ufss}" var="uf" itemLabel="#{uf.sigla}" itemValue="#{uf}"  />
 	</h:selectOneMenu>
 <!-- Button (Double) -->
 <div class="control-group">
   <label class="control-label" for="salvar"></label>
   <div class="controls">
-      <h:commandButton id="salvar" value="Salvar" class="btn btn-success"/>
+      <h:commandButton id="salvar" value="Salvar" class="btn btn-success" action="#{cidadeBean.adicionaCidades}"/>
       <h:commandButton id="cancelar" value="Cancelar" class="btn btn-danger"/>
   </div>
 </div>
