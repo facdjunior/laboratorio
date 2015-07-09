@@ -14,17 +14,10 @@ public class Cidade {
 	@Id
 	private Integer codigo;
 	private String nome;
-	@ManyToOne
-	private UF uf;
+        private Integer uf;
         private Integer CodIBGE;
-	public Cidade() {	}
-        
-	public Cidade(Integer codigo, String nome, UF uf) {
-		this.codigo = codigo;
-		this.nome = nome;
-		this.uf = uf;
-	}
-
+	
+   	
     public Integer getCodIBGE() {
         return CodIBGE;
     }
@@ -46,13 +39,15 @@ public class Cidade {
 		this.nome = nome;
 	}
 
-    public UF getUf() {
+    public Integer getUf() {
         return uf;
     }
 
-    public void setUf(UF uf) {
+    public void setUf(Integer uf) {
         this.uf = uf;
     }
+
+
 
  
 

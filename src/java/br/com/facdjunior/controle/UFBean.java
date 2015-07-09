@@ -18,9 +18,6 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
-@ManagedBean
-@Named
-@ViewScoped
 
 public class UFBean implements Serializable{
 

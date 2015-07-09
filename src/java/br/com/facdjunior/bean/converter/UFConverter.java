@@ -1,5 +1,6 @@
 package br.com.facdjunior.bean.converter;
 
+import br.com.facdjunior.modelo.Cidade;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -12,9 +13,9 @@ import br.com.facdjunior.modelo.UF;
 @FacesConverter("ufConverter")
 public class UFConverter implements Converter {
 
-	@Inject
+        @Inject
 	private EntityManager entityManager;
-	
+        
 	@Override
 	public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
 		return entityManager.find(UF.class, Integer.valueOf(value));
@@ -25,7 +26,7 @@ public class UFConverter implements Converter {
 		if (value == null) {
 			return "";
 		}
-		return String.valueOf(((UF) value).getCodIBGE());
+		return String.valueOf(((UF) value).getCodigo());
 	}
 
 }
