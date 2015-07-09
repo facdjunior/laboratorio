@@ -39,7 +39,7 @@
   </div>
 </div>
 <h:outputLabel value="UF" for="uf" />
-<h:selectOneMenu id="uf" value="#{enderecoBean.uf}" converter="ufConverter">
+<h:selectOneMenu id="uf" value="#{cidadeBean.cidade.uf}" converter="ufConverter">
     <f:selectItems value="#{enderecoBean.uffs}" var="uf" itemLabel="#{uf.sigla}" itemValue="#{uf}"  />
 	</h:selectOneMenu>
 <!-- Button (Double) -->

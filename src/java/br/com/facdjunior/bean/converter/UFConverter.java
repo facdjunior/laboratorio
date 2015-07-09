@@ -9,16 +9,19 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.facdjunior.modelo.UF;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 @FacesConverter("ufConverter")
 public class UFConverter implements Converter {
 
-        @Inject
-	private EntityManager entityManager;
         
+	private EntityManager entityManager;
+        private EntityManagerFactory factory = Persistence.createEntityManagerFactory("SysLab_PU");
+    private EntityManager em = factory.createEntityManager();
 	@Override
 	public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
-		return entityManager.find(UF.class, Integer.valueOf(value));
+		return em.find(UF.class, Integer.valueOf(value));
 	}
 
 	@Override
