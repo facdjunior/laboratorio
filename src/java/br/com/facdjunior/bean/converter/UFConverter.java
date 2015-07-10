@@ -18,7 +18,7 @@ public class UFConverter implements Converter {
         
 	private EntityManager entityManager;
         private EntityManagerFactory factory = Persistence.createEntityManagerFactory("SysLab_PU");
-    private EntityManager em = factory.createEntityManager();
+        private EntityManager em = factory.createEntityManager();
 	@Override
 	public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
 		return em.find(UF.class, Integer.valueOf(value));

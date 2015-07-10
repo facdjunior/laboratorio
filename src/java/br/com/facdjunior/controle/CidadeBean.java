@@ -23,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
  * @author Francisco Junior 08/07/2015
  */
 @ManagedBean
-@Named
 @ViewScoped
 public class CidadeBean {
     
@@ -33,8 +32,7 @@ public class CidadeBean {
     
      public void adicionaCidades(){
         EntityManager manager = this.getEntityManager();
-         CidadeRepository repository = new CidadeRepository(manager);
-        
+        CidadeRepository repository = new CidadeRepository(manager);
         repository.adicionaCidade(this.cidade);
         this.cidade = new Cidade();
     }

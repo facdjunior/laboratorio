@@ -1,12 +1,14 @@
 package br.com.facdjunior.modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 public class UF {
 
-    @Id
+    @Id @GeneratedValue
     private Integer codigo;
     private String sigla;
     private String nome;

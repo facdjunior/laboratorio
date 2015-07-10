@@ -14,7 +14,7 @@ public class Cidade {
 	@Id
 	private Integer codigo;
 	private String nome;
-        private Integer uf;
+        private String uf_codigo;
         private Integer CodIBGE;
 	
    	
@@ -39,12 +39,12 @@ public class Cidade {
 		this.nome = nome;
 	}
 
-    public Integer getUf() {
-        return uf;
+    public String getUf() {
+        return uf_codigo;
     }
 
-    public void setUf(Integer uf) {
-        this.uf = uf;
+    public void setUf(String uf) {
+        this.uf_codigo = uf;
     }
 
 

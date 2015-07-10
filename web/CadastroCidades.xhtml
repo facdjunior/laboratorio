@@ -40,13 +40,15 @@
 </div>
 <h:outputLabel value="UF" for="uf" />
 <h:selectOneMenu id="uf" value="#{cidadeBean.cidade.uf}" converter="ufConverter">
+    <f:selectItem itemLabel="--Selecione--" noSelectionOption="true" />
     <f:selectItems value="#{enderecoBean.uffs}" var="uf" itemLabel="#{uf.sigla}" itemValue="#{uf}"  />
+    <f:ajax execute="@this" render=":cidade :bairro :mensagens" listener="#{enderecoBean.atualizaCidades}" />
 	</h:selectOneMenu>
 <!-- Button (Double) -->
 <div class="control-group">
   <label class="control-label" for="salvar"></label>
   <div class="controls">
-      <h:commandButton id="salvar" value="Salvar" class="btn btn-success" action="#{cidadeBean.adicionaCidades}"/>
+      <h:commandButton id="salvar" value="Salvar" class="btn btn-success" action="#{cidadeBean.adicionaCidades()}"/>
       <h:commandButton id="cancelar" value="Cancelar" class="btn btn-danger"/>
   </div>
 </div>

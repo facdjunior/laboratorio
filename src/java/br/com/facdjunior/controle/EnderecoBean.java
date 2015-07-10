@@ -47,7 +47,8 @@ public class EnderecoBean implements Serializable {
         
                 
 		if (ufs == null) {
-			this.ufs = em.createQuery("select uf from UF uf order by uf.sigla", UF.class).getResultList();
+                 
+			this.ufs = em.createQuery("select uf from UF uf order by uf.sigla").getResultList();
 		}
 		return this.ufs;
 	}
@@ -61,7 +62,7 @@ public class EnderecoBean implements Serializable {
         UF uf = (UF) ((UISelectOne) event.getSource()).getValue();
         if (uf != null) {
             this.cidades = manager
-                    .createQuery("select c from Cidade c where c.uf = :uf order by c.nome", Cidade.class)
+                    .createQuery("select c from UF c where c.sigla = :uf order by c.nome", Cidade.class)
                     .setParameter("uf", uf)
                     .getResultList();
         }
